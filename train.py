@@ -103,5 +103,10 @@ for epoch in range(epochs):
             print('Step: {}; Validation Loss: {}; Validation Accuracy: {}'.format(step,val_loss,val_acc))
     
     print('Epoch: {}/{}; Training Loss: {}'.format(epoch+1,epochs,train_loss/len(loader['trainloader'])))
+
+# Test Accuracy:
+test_loss, test_acc = validation(model,criterion,loader['testloader'],device)
+
+print('Test Loss: {}; Test Accuracy: {}'.format(test_loss,test_acc))
           
 save_model(model,categories_to_names,args.save_dir)
